@@ -31,12 +31,24 @@ public class UserInterface {
                 2) Save to file
                 3) Load from file
                 4) sort
-                5) create      
+                5) create
+                9) exit   
                 """);
     }
 
     private void sort() {
+        System.out.println("""
+                1) regin
+                2) number of dead
+                """);
 
+        //TODO let the user chose the direction
+
+        System.out.println("Pick a sorting pattern");
+        switch (getIntFromUser()) {
+            case 1 -> controller.sort("region", "ASC");
+            case 2 -> controller.sort("numberOfDead", "ASC");
+        }
     }
 
     private void loadToFile() {

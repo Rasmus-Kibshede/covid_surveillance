@@ -2,12 +2,21 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class FileHandler {
 
     private String filePath = "data/11_noegletal_pr_region_pr_aldersgruppe.csv";
     private ArrayList<Covid19Data> data = new ArrayList<>();
+    private SuperFlexibleComparator comparator = new SuperFlexibleComparator("Region", "ASC");
+
+
+    public void sortBy(String type, String direction){
+        comparator.setType(type);
+        comparator.setDirection(direction);
+        Collections.sort(getData(), comparator);
+    }
 
     public void loadData() {
         try {
